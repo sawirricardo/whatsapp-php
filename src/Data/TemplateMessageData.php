@@ -9,5 +9,4 @@ class TemplateMessageData implements Arrayable, Jsonable
 {
     private $name;
     private $languageCode;
-    
 }
