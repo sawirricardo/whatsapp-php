@@ -1,21 +1,23 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "sawirricardo/whatsapp-php",
+    "description": "Use Whatsapp's Cloud API",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "sawirricardo",
+        "whatsapp-php"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/sawirricardo/whatsapp-php",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "sawirricardo",
+            "email": "sawir.ricardo@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^7.3 | ^8.0",
+        "illuminate/http": "^8.83",
+        "illuminate/support": "^8.83"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -24,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Sawirricardo\\Whatsapp\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Sawirricardo\\Whatsapp\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -38,7 +40,10 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
