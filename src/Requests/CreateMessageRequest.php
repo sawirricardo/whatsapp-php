@@ -17,7 +17,7 @@ class CreateMessageRequest
     {
         return array_merge($this->defaultData(), [
             'type' => $message->type,
-        ]);
+        ], [$message->type => $message->]);
     }
 
     protected function defineEndpoint()

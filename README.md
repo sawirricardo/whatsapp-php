@@ -27,8 +27,7 @@ composer require sawirricardo/whatsapp-php
 ## Usage
 
 ```php
-$skeleton = new Sawirricardo\Whatsapp();
-echo $skeleton->echoPhrase('Hello, Sawirricardo!');
+$client = new \Sawirricardo\Whatsapp\Whatsapp()
 ```
 
 ## Testing
