@@ -1,20 +1,17 @@
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
-# Use Whatsapp's Cloud API
+# Use The Most Used Whatsapp's Cloud API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sawirricardo/whatsapp-php.svg?style=flat-square)](https://packagist.org/packages/sawirricardo/whatsapp-php)
 [![Tests](https://github.com/sawirricardo/whatsapp-php/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/sawirricardo/whatsapp-php/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/sawirricardo/whatsapp-php.svg?style=flat-square)](https://packagist.org/packages/sawirricardo/whatsapp-php)
 
-Start using Whatsapp Business Cloud API
+Start using Whatsapp Business Cloud API in your app!
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/whatsapp-php.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/whatsapp-php)
+Investing on this package is defintely a good move from you. You can support by donating to:
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+-   PayPal https://www.paypal.com/paypalme/sawirricardo.
+-   BCA 8330123584
 
 ## Installation
 
