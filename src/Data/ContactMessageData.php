@@ -7,7 +7,7 @@ use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 class ContactMessageData implements HasMessageData
 {
     private $contacts;
-    
+
     public function getType()
     {
         return 'contacts';
@@ -15,9 +15,8 @@ class ContactMessageData implements HasMessageData
 
     public function toArray()
     {
-        return array_map(function($contact) {
-
-        },$this->contacts);
+        return array_map(function ($contact) {
+        }, $this->contacts);
     }
 
     public function toJson($options = 0)
