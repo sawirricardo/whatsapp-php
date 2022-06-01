@@ -34,9 +34,13 @@ class Webhook
         return $this;
     }
 
-    /** @var array<string, mixed> */
+    /** @param callable || array<string, mixed> $data */
     public function listen($data)
     {
+        if (is_callable($data)) {
+            $data = $data();
+        }
+
         call_user_func($this->onMessaged, $data);
     }
 
