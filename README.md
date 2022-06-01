@@ -27,7 +27,10 @@ composer require sawirricardo/whatsapp-php
 ## Usage
 
 ```php
-$client = new \Sawirricardo\Whatsapp\Whatsapp()
+$client = \Sawirricardo\Whatsapp\Whatsapp::make($token, $phoneId)
+    ->to('+111111111')
+    ->message(TextMessageData::make('Hello world!'))
+    ->send();
 ```
 
 ## Testing
