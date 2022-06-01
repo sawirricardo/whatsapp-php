@@ -1,0 +1,83 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "PHONE_NUMBER",
+                            "phone_number_id": "PHONE_NUMBER_ID"
+                        },
+                        "contacts": [
+                            {
+                                "profile": {
+                                    "name": "NAME"
+                                },
+                                "wa_id": "WHATSAPP_ID"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "from": "PHONE_NUMBER",
+                                "id": "wamid.ID",
+                                "timestamp": "TIMESTAMP",
+                                "contacts": [
+                                    {
+                                        "addresses": [
+                                            {
+                                                "city": "CONTACT_CITY",
+                                                "country": "CONTACT_COUNTRY",
+                                                "country_code": "CONTACT_COUNTRY_CODE",
+                                                "state": "CONTACT_STATE",
+                                                "street": "CONTACT_STREET",
+                                                "type": "HOME or WORK",
+                                                "zip": "CONTACT_ZIP"
+                                            }
+                                        ],
+                                        "birthday": "CONTACT_BIRTHDAY",
+                                        "emails": [
+                                            {
+                                                "email": "CONTACT_EMAIL",
+                                                "type": "WORK or HOME"
+                                            }
+                                        ],
+                                        "name": {
+                                            "formatted_name": "CONTACT_FORMATTED_NAME",
+                                            "first_name": "CONTACT_FIRST_NAME",
+                                            "last_name": "CONTACT_LAST_NAME",
+                                            "middle_name": "CONTACT_MIDDLE_NAME",
+                                            "suffix": "CONTACT_SUFFIX",
+                                            "prefix": "CONTACT_PREFIX"
+                                        },
+                                        "org": {
+                                            "company": "CONTACT_ORG_COMPANY",
+                                            "department": "CONTACT_ORG_DEPARTMENT",
+                                            "title": "CONTACT_ORG_TITLE"
+                                        },
+                                        "phones": [
+                                            {
+                                                "phone": "CONTACT_PHONE",
+                                                "wa_id": "CONTACT_WA_ID",
+                                                "type": "HOME or WORK>"
+                                            }
+                                        ],
+                                        "urls": [
+                                            {
+                                                "url": "CONTACT_URL",
+                                                "type": "HOME or WORK"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}

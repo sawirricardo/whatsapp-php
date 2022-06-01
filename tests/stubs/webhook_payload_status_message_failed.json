@@ -1,0 +1,34 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "PHONE_NUMBER",
+                            "phone_number_id": "PHONE_NUMBER_ID"
+                        },
+                        "statuses": [
+                            {
+                                "id": "wamid.ID",
+                                "status": "failed",
+                                "timestamp": "TIMESTAMP",
+                                "recipient_id": "PHONE_NUMBER",
+                                "errors": [
+                                    {
+                                        "code": 131014,
+                                        "title": "Request for url https://URL.jpg failed with error: 404 (Not Found)"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "ID",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "PHONE_NUMBER",
+                            "phone_number_id": "PHONE_NUMBER_ID"
+                        },
+                        "contacts": [
+                            {
+                                "profile": {
+                                    "name": "NAME"
+                                },
+                                "wa_id": "ID"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "from": "SENDER_PHONE_NUMBER",
+                                "id": "wamid.ID",
+                                "timestamp": "TIMESTAMP",
+                                "type": "sticker",
+                                "sticker": {
+                                    "mime_type": "image/webp",
+                                    "sha256": "HASH",
+                                    "id": "ID"
+                                }
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}

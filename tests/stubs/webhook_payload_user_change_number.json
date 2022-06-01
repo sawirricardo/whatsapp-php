@@ -1,0 +1,33 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "PHONE_NUMBER",
+                            "phone_number_id": "PHONE_NUMBER_ID"
+                        },
+                        "messages": [
+                            {
+                                "from": "PHONE_NUMBER",
+                                "id": "wamid.ID",
+                                "system": {
+                                    "body": "NAME changed from PHONE_NUMBER to PHONE_NUMBER",
+                                    "new_wa_id": "NEW_PHONE_NUMBER",
+                                    "type": "user_changed_number"
+                                },
+                                "timestamp": "TIMESTAMP",
+                                "type": "system"
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}

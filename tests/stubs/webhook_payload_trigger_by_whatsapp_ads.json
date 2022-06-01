@@ -1,0 +1,50 @@
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "ID",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "PHONE_NUMBER",
+                            "phone_number_id": "PHONE_NUMBER_ID"
+                        },
+                        "contacts": [
+                            {
+                                "profile": {
+                                    "name": "NAME"
+                                },
+                                "wa_id": "ID"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "referral": {
+                                    "source_url": "AD_OR_POST_FB_URL",
+                                    "source_id": "ADID",
+                                    "source_type": "ad or post",
+                                    "headline": "AD_TITLE",
+                                    "body": "AD_DESCRIPTION",
+                                    "media_type": "image or video",
+                                    "image_url": "RAW_IMAGE_URL",
+                                    "video_url": "RAW_VIDEO_URL",
+                                    "thumbnail_url": "RAW_THUMBNAIL_URL"
+                                },
+                                "from": "SENDER_PHONE_NUMBERID",
+                                "id": "wamid.ID",
+                                "timestamp": "TIMESTAMP",
+                                "type": "text",
+                                "text": {
+                                    "body": "BODY"
+                                }
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}
