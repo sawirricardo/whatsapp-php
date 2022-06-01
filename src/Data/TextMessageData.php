@@ -2,10 +2,9 @@
 
 namespace Sawirricardo\Whatsapp\Data;
 
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Jsonable;
+use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 
-class TextMessageData implements Arrayable, Jsonable
+class TextMessageData implements HasMessageData
 {
     private $preview_url = false;
     private $body = null;

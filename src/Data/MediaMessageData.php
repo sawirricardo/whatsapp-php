@@ -2,10 +2,9 @@
 
 namespace Sawirricardo\Whatsapp\Data;
 
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Jsonable;
+use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 
-class MediaMessageData implements Arrayable, Jsonable
+class MediaMessageData implements HasMessageData
 {
     private $id;
 

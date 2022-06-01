@@ -6,9 +6,13 @@ use Illuminate\Support\Facades\Response;
 
 class Webhook
 {
+    /** @var string */
     private $token;
+
+    /** @var string */
     private $verifyToken;
 
+    /** @var ?callable */
     private $onMessaged;
 
     public function __construct($token, $verifyToken)
@@ -17,14 +21,15 @@ class Webhook
         $this->verifyToken = $verifyToken;
     }
 
-    public static function create($token, $verifyToken)
+    public static function make($token, $verifyToken)
     {
         return new static($token, $verifyToken);
     }
 
-    public function whenReceivedMessage($whenReceivedMessage)
+    /** @param callable $whenMessageReceived */
+    public function whenMessageReceived($whenMessageReceived)
     {
-        $this->onMessaged = $whenReceivedMessage;
+        $this->onMessaged = $whenMessageReceived;
 
         return $this;
     }
@@ -32,7 +37,7 @@ class Webhook
     /** @var array<string, mixed> */
     public function listen($data)
     {
-        call_user_func($this->onMessaged);
+        call_user_func($this->onMessaged, $data);
     }
 
     public function validate($data)

@@ -2,9 +2,9 @@
 
 namespace Sawirricardo\Whatsapp\Data;
 
-use Illuminate\Contracts\Support\Jsonable;
+use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 
-class LocationMessageData implements Arrayable, Jsonable
+class LocationMessageData implements HasMessageData
 {
     private $latitude;
     private $longitude;

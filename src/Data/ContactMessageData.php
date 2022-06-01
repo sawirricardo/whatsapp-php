@@ -2,13 +2,22 @@
 
 namespace Sawirricardo\Whatsapp\Data;
 
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Jsonable;
+use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 
-class ContactMessageData implements Arrayable, Jsonable
+class ContactMessageData implements HasMessageData
 {
     public function getType()
     {
         return 'contact';
+    }
+
+    public function toArray()
+    {
+        return [];
+    }
+
+    public function toJson($options = 0)
+    {
+        return json_encode($this->toArray(), $options);
     }
 }
