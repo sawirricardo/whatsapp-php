@@ -7,6 +7,42 @@ use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 class MediaMessageData implements HasMessageData
 {
     private $id;
+    private $type;
+
+    public function image()
+    {
+        $this->type = 'image';
+
+        return $this;
+    }
+
+    public function video()
+    {
+        $this->type = 'video';
+
+        return $this;
+    }
+
+    public function audio()
+    {
+        $this->type = 'audio';
+
+        return $this;
+    }
+
+    public function document()
+    {
+        $this->type = 'document';
+
+        return $this;
+    }
+
+    public function sticker()
+    {
+        $this->type = 'sticker';
+
+        return $this;
+    }
 
     public function url($url)
     {

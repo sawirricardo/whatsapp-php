@@ -3,6 +3,7 @@
 namespace Sawirricardo\Whatsapp;
 
 use Illuminate\Support\Facades\Http;
+use Sawirricardo\Whatsapp\Data\ResponseData;
 use Sawirricardo\Whatsapp\Exceptions\MessageNotSetException;
 use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 
@@ -46,13 +47,14 @@ class Whatsapp
         return $this;
     }
 
-    public function send()
+    /** @return ?ResponseData */
+    public function send($shouldThrow = false)
     {
         if (is_null($this->message)) {
             throw new MessageNotSetException();
         }
 
-        Http::asJson()->acceptJson()
+        $data = Http::asJson()->acceptJson()
             ->withToken($this->token)
             ->baseUrl($this->defineBaseUrl())
             ->post('/messages', [
@@ -60,10 +62,15 @@ class Whatsapp
                 'to' => $this->to,
                 'type' => $this->message->getType(),
                 $this->message->getType() => $this->message->toArray(),
-            ]);
+            ])
+            ->throwIf($shouldThrow)
+            ->collect()
+            ->toArray();
+
+        return ResponseData::fromArray($data);
     }
 
-    public function markAsRead($messageId)
+    public function markAsRead($messageId, $shouldThrow = false)
     {
         Http::asJson()->acceptJson()
             ->withToken($this->token)
@@ -72,7 +79,8 @@ class Whatsapp
                 'messaging_product' => 'whatsapp',
                 'status' => 'read',
                 'message_id' => $messageId,
-            ]);
+            ])
+            ->throwIf($shouldThrow);
     }
 
     protected function defineBaseUrl()

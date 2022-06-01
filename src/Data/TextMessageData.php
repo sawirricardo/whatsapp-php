@@ -6,12 +6,23 @@ use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 
 class TextMessageData implements HasMessageData
 {
-    private $preview_url = false;
+    private $previewUrl = false;
     private $body = null;
+
+    public function __construct($body, $previewUrl)
+    {
+        $this->body = $body;
+        $this->previewUrl = $previewUrl;
+    }
+
+    public static function make($body, $previewUrl = false)
+    {
+        return new static($body, $previewUrl);
+    }
 
     public function withPreviewUrl()
     {
-        $this->preview_url = true;
+        $this->previewUrl = true;
 
         return $this;
     }
@@ -32,7 +43,7 @@ class TextMessageData implements HasMessageData
     {
         return [
             'body' => $this->body,
-            'preview_url' => $this->preview_url,
+            'preview_url' => $this->previewUrl,
         ];
     }
 

@@ -8,13 +8,13 @@ use Illuminate\Contracts\Support\Jsonable;
 class ResponseData implements Arrayable, Jsonable
 {
     /** @var string */
-    private $messagingProduct;
+    public $messagingProduct;
 
     /** @var array<int, ResponseContactData> */
-    private $contacts;
+    public $contacts;
 
     /** @var array<int, ResponseMessageData> */
-    private $messages;
+    public $messages;
 
     public function __construct(
         $messagingProduct,
