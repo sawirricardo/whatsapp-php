@@ -243,6 +243,7 @@ class Webhook
         call_user_func($this->onMessaged, $data);
     }
 
+    /** @param array<string, string> $data */
     public function shouldProcess($data)
     {
         if (array_key_exists('hub', $data)) {

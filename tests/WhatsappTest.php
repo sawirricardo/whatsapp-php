@@ -1,16 +1,21 @@
 <?php
 
-use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Psr7\Response;
 use Sawirricardo\Whatsapp\Data\ResponseData;
 use Sawirricardo\Whatsapp\Data\TextMessageData;
 use Sawirricardo\Whatsapp\Whatsapp;
 
+beforeEach(function () {
+});
+
 it('can send Text Message Data', function () {
-    Http::fake([
-        '*' => Http::response(json_decode(file_get_contents('tests/stubs/response_message_200.json'), true)),
+    $client = createFakeClient([
+        new Response(200, [], file_get_contents('tests/stubs/response_message_200.json')),
     ]);
 
-    $response = Whatsapp::make('token', 'phone')
+    $response = Whatsapp::make($client)
+        ->token('token')
+        ->phoneId('phoneId')
         ->to('+62000000000')
         ->message(TextMessageData::make('Hello World'))
         ->send();

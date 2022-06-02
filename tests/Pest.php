@@ -1,8 +1,14 @@
 <?php
 
-use Illuminate\Container\Container;
-use Illuminate\Support\Facades\Facade;
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
 
-$app = new Container();
-$app->singleton('app', Container::class);
-Facade::setFacadeApplication($app);
+function createFakeClient($responses)
+{
+    $mock = new MockHandler($responses);
+
+    $handler = HandlerStack::create($mock);
+
+    return new Client(['handler' => $handler]);
+}

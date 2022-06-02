@@ -30,12 +30,12 @@ class ResponseData implements Arrayable, Jsonable
     {
         return new static(
             $data['messaging_product'],
-            collect($data['contacts'])->map(function ($contact) {
+            array_map(function ($contact) {
                 return ResponseContactData::fromArray($contact);
-            })->toArray(),
-            collect($data['messages'])->map(function ($message) {
+            }, $data['contacts']),
+            array_map(function ($message) {
                 return ResponseMessageData::fromArray($message);
-            })->toArray()
+            }, $data['messages'])
         );
     }
 

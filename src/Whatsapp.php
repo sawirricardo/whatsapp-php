@@ -2,8 +2,9 @@
 
 namespace Sawirricardo\Whatsapp;
 
-use Illuminate\Support\Facades\Http;
+use GuzzleHttp\ClientInterface;
 use Sawirricardo\Whatsapp\Data\ResponseData;
+use Sawirricardo\Whatsapp\Exceptions\FailedConnectionException;
 use Sawirricardo\Whatsapp\Exceptions\MessageNotSetException;
 use Sawirricardo\Whatsapp\Interfaces\HasMessageData;
 
@@ -21,15 +22,32 @@ class Whatsapp
     /** @var HasMessageData|null */
     private $message;
 
-    public function __construct($token, $phoneId)
+    /** @var ClientInterface */
+    private $client;
+
+    /** @param ?ClientInterface $client */
+    public function __construct($client = null)
     {
-        $this->token = $token;
-        $this->phoneId = $phoneId;
+        $this->client = $client ?? new \GuzzleHttp\Client();
     }
 
-    public static function make($token, $phoneId)
+    public static function make($client = null)
     {
-        return new static($token, $phoneId);
+        return new static($client);
+    }
+
+    public function phoneId($phoneId)
+    {
+        $this->phoneId = $phoneId;
+
+        return $this;
+    }
+
+    public function token($token)
+    {
+        $this->token = $token;
+
+        return $this;
     }
 
     public function to($to)
@@ -48,39 +66,49 @@ class Whatsapp
     }
 
     /** @return ?ResponseData */
-    public function send($shouldThrow = false)
+    public function send()
     {
         if (is_null($this->message)) {
             throw new MessageNotSetException();
         }
 
-        $data = Http::asJson()->acceptJson()
-            ->withToken($this->token)
-            ->baseUrl($this->defineBaseUrl())
-            ->post('/messages', [
+        $response = $this->client->request('POST', $this->defineBaseUrl() . '/messages', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->token,
+                'Content-Type' => 'application/json',
+            ],
+            'json' => [
                 'recipient_type' => 'individual',
                 'to' => $this->to,
                 'type' => $this->message->getType(),
                 $this->message->getType() => $this->message->toArray(),
-            ])
-            ->throwIf($shouldThrow)
-            ->collect()
-            ->toArray();
+            ],
+        ]);
 
-        return ResponseData::fromArray($data);
+        if ($response->getStatusCode() !== 200) {
+            throw FailedConnectionException::couldNotConnect();
+        }
+
+        return ResponseData::fromArray(json_decode($response->getBody(), true));
     }
 
-    public function markAsRead($messageId, $shouldThrow = false)
+    public function markAsRead($messageId)
     {
-        Http::asJson()->acceptJson()
-            ->withToken($this->token)
-            ->baseUrl($this->defineBaseUrl())
-            ->post('/messages', [
+        $response = $this->client->request('POST', $this->defineBaseUrl() . '/messages', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->token,
+                'Content-Type' => 'application/json',
+            ],
+            'json' => [
                 'messaging_product' => 'whatsapp',
                 'status' => 'read',
                 'message_id' => $messageId,
-            ])
-            ->throwIf($shouldThrow);
+            ],
+        ]);
+
+        if ($response->getStatusCode() !== 200) {
+            throw FailedConnectionException::couldNotConnect();
+        }
     }
 
     protected function defineBaseUrl()
