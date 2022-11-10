@@ -2,6 +2,10 @@
 
 All notable changes to `whatsapp-php` will be documented in this file.
 
+## 0.0.4 - 2022-11-10
+
+Add 7.0 to illuminate/support
+
 ## 0.0.3 - 2022-06-02
 
 use guzzle client
