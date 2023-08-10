@@ -2,6 +2,10 @@
 
 All notable changes to `whatsapp-php` will be documented in this file.
 
+## 0.0.5 - 2023-08-10
+
+Add support for laravel 10
+
 ## 0.0.4 - 2022-11-10
 
 Add 7.0 to illuminate/support
